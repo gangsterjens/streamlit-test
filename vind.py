@@ -16,8 +16,8 @@ def _get_stations(lon, lat, client_id, n_stations=5):
     station_id = i['id']
     name = i['name']
     distance = i['distance']
-    lat = i['geometry']['coordinates'][0]
-    lon = i['geometry']['coordinates'][1]
+    lon = i['geometry']['coordinates'][0]
+    lat = i['geometry']['coordinates'][1]
     station_list.append([station_id, name,  distance, lat, lon])
   return station_list
 
