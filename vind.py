@@ -61,5 +61,5 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
 
 df = get_weather_data(16.85264, 68.35646, client_id, '2023-02-09', wind=True)
-st.title("test")
+st.text("test")
 st.map(df)
