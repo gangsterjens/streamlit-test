@@ -18,7 +18,7 @@ def _get_stations(lon, lat, client_id, n_stations=5):
     distance = i['distance']
     lon = i['geometry']['coordinates'][0]
     lat = i['geometry']['coordinates'][1]
-    station_list.append([station_id, name,  distance, lat, lon])
+    station_list.append([station_id, name,  distance, lon, lat])
   return station_list
 
 def _get__wind_observation(station_id, combined_date, wind=False, rain=False):
@@ -57,7 +57,7 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
     if data:
       observations_list.append(data)
   
-  a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'lat', 'lon'])
+  a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'lon', 'lat'])
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
 
