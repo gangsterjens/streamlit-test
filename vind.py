@@ -63,7 +63,7 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
 
 st.text("Naturskadedata")
 with st.sidebar:
-  st.text("sett inn Koordinater"
+  st.text("sett inn Koordinater")
   longitude = st.text_input("Lon")        
   latitude = st.text_input("Latitude")
   st.selectbox(["Storm", "Flom"])
