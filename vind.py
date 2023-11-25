@@ -61,9 +61,9 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
 
-st.text("# Naturskadedata")
+st.markdown("# Naturskadedata")
 with st.sidebar:
-  st.text("## sett inn Koordinater")
+  st.markdown("## sett inn Koordinater")
   longitude = st.text_input("Lon", placeholder='16.85264')        
   latitude = st.text_input("Latitude", placeholder='68.35646')
   st.selectbox("Type naturskade", ["Storm", "Flom"])
