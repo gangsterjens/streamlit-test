@@ -75,7 +75,7 @@ if kjoyr:
   col1.map(df)
   
   for index, row in df.iterrows():
-    col2.metric(f"Høyste vindkast ved {row['name']}", row['value'])
+    col2.metric(row['name'], row['value'])
 
   st.dataframe(df)
 
