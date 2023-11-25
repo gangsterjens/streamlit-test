@@ -71,7 +71,7 @@ with st.sidebar:
 if kjoyr:
   df = get_weather_data(longitude, latitude, client_id, '2023-02-09', wind=True)
   ## st.text("test")
-  col1, col2 = st.columns(2)
+  col1, col2 = st.columns([5,1])
   col1.map(df)
   
   for index, row in df.iterrows():
