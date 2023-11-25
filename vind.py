@@ -72,10 +72,10 @@ if kjoyr:
   df = get_weather_data(longitude, latitude, client_id, '2023-02-09', wind=True)
   ## st.text("test")
   col1, col2 = st.columns(2)
-  col1.st.map(df)
+  col1.map(df)
   
   for index, row in df.iterrows():
-    col2.st.metric(f"Høyste vindkast ved {row['name']}", row['value'])
+    col2.metric(f"Høyste vindkast ved {row['name']}", row['value'])
 
   st.dataframe(df)
 
