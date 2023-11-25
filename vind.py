@@ -66,7 +66,7 @@ with st.sidebar:
   st.text("sett inn Koordinater")
   longitude = st.text_input("Lon")        
   latitude = st.text_input("Latitude")
-  st.selectbox(["Storm", "Flom"])
+  st.selectbox("Type naturskade", ["Storm", "Flom"])
   kjoyr = st.button("kjøyr")
 if kjoyr:
   df = get_weather_data(longitude, latitude, client_id, '2023-02-09', wind=True)
