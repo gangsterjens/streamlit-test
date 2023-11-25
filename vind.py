@@ -64,8 +64,8 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
 st.text("Naturskadedata")
 with st.sidebar:
   st.text("sett inn Koordinater")
-  longitude = st.text_input("Lon")        
-  latitude = st.text_input("Latitude")
+  longitude = st.text_input("Lon", placeholder='16.85264')        
+  latitude = st.text_input("Latitude", placeholder='68.35646')
   st.selectbox("Type naturskade", ["Storm", "Flom"])
   kjoyr = st.button("kjøyr")
 if kjoyr:
