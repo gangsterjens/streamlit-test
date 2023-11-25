@@ -60,9 +60,15 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
   a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'lon', 'lat'])
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
-
-df = get_weather_data(16.85264, 68.35646, client_id, '2023-02-09', wind=True)
-## st.text("test")
-st.map(df)
-st.dataframe(df)
+with st.sidebar:
+  st.text("sett inn Koordinater"
+  longitude = st.text_input("Lon")        
+  latitude = st.text_input("Latitude")
+  st.selectbox(["Storm", "Flom"])
+  kjoyr = st.button("kjøyr"):
+if kjoyr:
+  df = get_weather_data(longitude, latitude, client_id, '2023-02-09', wind=True)
+  ## st.text("test")
+  st.map(df)
+  st.dataframe(df)
 
