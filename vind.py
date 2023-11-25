@@ -60,6 +60,8 @@ def get_weather_data(lat, lon, client_id, date, wind=False):
   a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'lon', 'lat'])
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
+
+st.text("Naturskadedata")
 with st.sidebar:
   st.text("sett inn Koordinater"
   longitude = st.text_input("Lon")        
