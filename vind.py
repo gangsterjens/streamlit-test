@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import ast
 import streamlit as st
+import datetime
 client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
 
 def _get_stations(lon, lat, client_id, n_stations=5):
@@ -67,7 +68,7 @@ with st.sidebar:
   longitude = st.text_input("Lon", placeholder='16.85264')        
   latitude = st.text_input("Latitude", placeholder='68.35646')
   st.selectbox("Type naturskade", ["Storm", "Flom"])
-  periode = st.date_input('Dag/Periode')
+  periode = st.date_input('Dag/Periode', "today")
   kjoyr = st.button("kjøyr")
 if kjoyr:
   st.markdown(periode)
