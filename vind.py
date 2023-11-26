@@ -67,8 +67,10 @@ with st.sidebar:
   longitude = st.text_input("Lon", placeholder='16.85264')        
   latitude = st.text_input("Latitude", placeholder='68.35646')
   st.selectbox("Type naturskade", ["Storm", "Flom"])
+  periode = st.date_input('Dag/Periode')
   kjoyr = st.button("kjøyr")
 if kjoyr:
+  st.markdown(periode)
   df = get_weather_data(longitude, latitude, client_id, '2023-02-09', wind=True)
   ## st.text("test")
   col1, col2 = st.columns([5,1])
