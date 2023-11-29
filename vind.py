@@ -18,10 +18,10 @@ with st.sidebar:
     periode = st.date_input('Dag/Periode', "today")
     kjoyr_storm = st.button("kjøyr")
   with flom_tab:
-    st.markdown("## sett inn Koordinater")
-    longitude_flom = st.text_input("Lon", placeholder='16.85264')        
-    latitude_flom = st.text_input("Latitude", placeholder='68.35646')
-    periode = st.date_input('Dag/Periode', "today")
+    st.markdown("## sett inn Koordinater for flomdata")
+    longitude_flom = st.text_input("Lon")        
+    latitude_flom = st.text_input("Latitude")
+    periode_flom = st.date_input('Dag/Periode', "today")
     kjoyr_storm = st.button("kjøyr")
     
     
