@@ -17,7 +17,7 @@ with st.sidebar:
     type_naturskade = st.selectbox("velg naturskade", ["Flom", "Storm"])
     kjoyr = st.button("kjøyr")
 ## Dashboard for stormdata:
-if koyr and (type_naturskade == 'Storm'):
+if kjoyr and (type_naturskade == 'Storm'):
   st.markdown(periode)
   df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
   ## st.text("test")
@@ -27,7 +27,7 @@ if koyr and (type_naturskade == 'Storm'):
     col2.metric(row['name'], row['value'])
   st.dataframe(df)  
 # Dashboard for flomdata: 
-elif koyr and (type_naturskade == 'Flom'):
+elif kjoyr and (type_naturskade == 'Flom'):
   gdf_list = find_water(longitude_flom, latitude_flom, distance=1000)
   map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
   st.map(map_df)
