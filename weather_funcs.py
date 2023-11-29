@@ -84,11 +84,14 @@ def find_water(lon, lat, distance):
           'natural': 'spring',
           'amenity': 'drinking_water'
           }
-# Use OSMnx to download the water bodies data
   try:
-    gdf = ox.features_from_point((lat, lon), tags, dist=distance)
-  except:
+      gdf = ox.features_from_point((lat, lon), tags, dist=distance)
+  except ValueError as ve:
+      # Handle the ValueError exception here
+      # You can also access the error message using ve.args
       return ['', '', '', '', '', '']
+
+
   row_values = []
   for index, row in gdf.iterrows():
     # find closest point
