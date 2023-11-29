@@ -74,9 +74,7 @@ from shapely.ops import nearest_points
 from shapely.geometry import Point, Polygon
 from geopy.distance import geodesic
 
-distance = 1000
-lon, lat = 10.604786, 60.361497
-import osmnx as ox
+
 def find_water(lon, lat, distance):
   tags = {'water': True,
           'waterway': True,
