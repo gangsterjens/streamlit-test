@@ -1,4 +1,4 @@
-osmnx==1.7.1
-pandas==1.5.3
+osmnx
+pandas
 shapely
 geopy
