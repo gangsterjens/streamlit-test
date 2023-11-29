@@ -19,8 +19,8 @@ with st.sidebar:
     kjoyr_storm = st.button("kjøyr")
   with flom_tab:
     st.markdown("## sett inn Koordinater")
-    longitude = st.text_input("Lon", placeholder='16.85264')        
-    latitude = st.text_input("Latitude", placeholder='68.35646')
+    longitude_flom = st.text_input("Lon", placeholder='16.85264')        
+    latitude_flom = st.text_input("Latitude", placeholder='68.35646')
     periode = st.date_input('Dag/Periode', "today")
     kjoyr_storm = st.button("kjøyr")
     
@@ -38,7 +38,7 @@ if kjoyr_storm:
 
   st.dataframe(df)
 if koyr_flom:
-  gdf_list = find_water(lon, lat, distance)
+  gdf_list = find_water(longitude_flom, latitude_flom, distance=1000)
   map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
   st.map(map_df)
 
