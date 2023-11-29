@@ -15,20 +15,30 @@ with st.sidebar:
     st.markdown("## sett inn Koordinater")
     longitude = st.text_input("Lon", placeholder='16.85264')        
     latitude = st.text_input("Latitude", placeholder='68.35646')
-    st.selectbox("Type naturskade", ["Storm", "Flom"])
     periode = st.date_input('Dag/Periode', "today")
-    kjoyr = st.button("kjøyr")
+    kjoyr_storm = st.button("kjøyr")
   with flom_tab:
-    st.markdown("### Test")
-if kjoyr:
+    st.markdown("## sett inn Koordinater")
+    longitude = st.text_input("Lon", placeholder='16.85264')        
+    latitude = st.text_input("Latitude", placeholder='68.35646')
+    periode = st.date_input('Dag/Periode', "today")
+    kjoyr_storm = st.button("kjøyr")
+    
+    
+    
+
+if kjoyr_storm:
   st.markdown(periode)
   df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
   ## st.text("test")
   col1, col2 = st.columns([5,1])
   col1.map(df)
-  
   for index, row in df.iterrows():
     col2.metric(row['name'], row['value'])
 
   st.dataframe(df)
+if koyr_flom:
+  gdf_list = find_water(lon, lat, distance)
+  map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
+  st.map(map_df)
 
