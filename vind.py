@@ -10,12 +10,16 @@ client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
 
 st.markdown("# Naturskadedata")
 with st.sidebar:
-  st.markdown("## sett inn Koordinater")
-  longitude = st.text_input("Lon", placeholder='16.85264')        
-  latitude = st.text_input("Latitude", placeholder='68.35646')
-  st.selectbox("Type naturskade", ["Storm", "Flom"])
-  periode = st.date_input('Dag/Periode', "today")
-  kjoyr = st.button("kjøyr")
+  storm_tab, flom_tab = st.tabs(['Storm', 'Flom'])
+  with storm_tab:
+    st.markdown("## sett inn Koordinater")
+    longitude = st.text_input("Lon", placeholder='16.85264')        
+    latitude = st.text_input("Latitude", placeholder='68.35646')
+    st.selectbox("Type naturskade", ["Storm", "Flom"])
+    periode = st.date_input('Dag/Periode', "today")
+    kjoyr = st.button("kjøyr")
+  with flom_tab:
+    st.markdown("### Test")
 if kjoyr:
   st.markdown(periode)
   df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
