@@ -28,9 +28,10 @@ if kjoyr and (type_naturskade == 'Storm'):
   st.dataframe(df)  
 # Dashboard for flomdata: 
 elif kjoyr and (type_naturskade == 'Flom'):
-  gdf_list = wf.find_water(longitude, latitude, distance=1000)
-  print(gdf_list)
-  print(gdf_list[4:6])
+    st.markdown("Skadedata fra flom")
+    gdf_list = wf.find_water(longitude, latitude, distance=1000)
+    st.markdown(gdf_list)
+    
     #map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
   #st.map(map_df)
 
