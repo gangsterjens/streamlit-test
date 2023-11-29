@@ -79,7 +79,7 @@ def find_water(lon, lat, distance):
   tags = {'water': True,
           'waterway': True,
           'landuse': 'reservoir',
-          'natural': 'spring',
+          'natural': ['bay', 'beach', 'blowhole', 'cape', 'coastline', 'crevasse', 'geyser', 'glacier', 'hot_spring', 'isthmus', 'mud', 'peninsula', 'reef', 'shingle', 'shoal', 'spring', 'strait', 'water', 'wetland']
           'amenity': 'drinking_water'
           }
   try:
