@@ -57,3 +57,52 @@ def get_weather_data(lat, lon, client_id, date, wind=False, rain=False):
   a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'coordinates'])
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
   return pd.merge(a, b, left_on='station_id', right_on='station_id')
+
+
+#lon, lat = 10.273419,	60.174558
+import osmnx as ox
+import pandas as pd
+from shapely.ops import nearest_points
+from shapely.geometry import Point, Polygon
+from geopy.distance import geodesic
+
+distance = 1000
+lon, lat = 10.604786, 60.361497
+import osmnx as ox
+def find_water(lon, lat, distance):
+  tags = {'water': True,
+          'waterway': True,
+          'landuse': 'reservoir',
+          'natural': 'spring',
+          'amenity': 'drinking_water'
+          }
+# Use OSMnx to download the water bodies data
+  try:
+    gdf = ox.features_from_point((lat, lon), tags, dist=distance)
+  except:
+      return ['', '', '', '', '', '']
+  row_values = []
+  for index, row in gdf.iterrows():
+    # find closest point
+    house = Point(lon, lat)
+    closest_point = nearest_points(house, row['geometry'])[1]
+    closest_point2 = nearest_points(house, row['geometry'])
+    # find distance
+    cp_ll = (closest_point.x, closest_point.y)
+    house_ll = (lon, lat)
+    distance_km = geodesic(house_ll, cp_ll).kilometers
+    try:
+      name = row['name']
+    except:
+      name = ''
+    try:
+      waterway = row['waterway']
+    except:
+      waterway = ''
+    try:
+      natural = row['natural']
+    except:
+      natural = ''
+    row_values.append([name, waterway, natural, cp_ll, house_ll, distance_km])
+    df_tmp = pd.DataFrame(row_values, columns=['name', 'waterway', 'natural', 'cp_ll', 'house_ll', 'distance_km']).sort_values('distance_km').reset_index()
+  return df_tmp.loc[0, :].values.flatten().tolist()
