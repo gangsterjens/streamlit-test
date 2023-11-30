@@ -2,3 +2,4 @@ osmnx
 pandas
 shapely
 geopy
+streamlit_folium
