@@ -141,5 +141,5 @@ def _get_water_station_data(station_id, inntruffet_dato):
 def get_water_graph(lat, lon, inntruffet_dato):
   df_temp = _get_stations(lat, lon)
   temp_station_id = df_temp.iloc[0]['station_id']
-  plot = _get_water_station_data(temp_station_id, str(inntruffet_dato))
+  plot = _get_water_station_data(temp_station_id, inntruffet_dato)
   return plot
