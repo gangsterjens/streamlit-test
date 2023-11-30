@@ -128,7 +128,7 @@ def _get_water_station_data(station_id, inntruffet_dato):
   prior_date = (datetime.strptime(inntruffet_dato, '%Y-%m-%d') - timedelta(days=15)).strftime('%Y-%m-%d')
 
   parameters = '1000'
-  url = f'https://hydapi.nve.no/api/v1/Observations?StationId={station_id}&Parameter={parameters}&ResolutionTime=1440&ReferenceTime={prior_date}/{inntruffet_date}'
+  url = f'https://hydapi.nve.no/api/v1/Observations?StationId={station_id}&Parameter={parameters}&ResolutionTime=1440&ReferenceTime={prior_date}/{inntruffet_dato}'
   r = requests.get(url, headers=headers)
   data = r.json()
   plot_list = []
