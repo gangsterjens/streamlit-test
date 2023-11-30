@@ -41,6 +41,7 @@ elif kjoyr and (type_naturskade == 'Flom'):
     st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
     map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
     mf.folium_map(float(latitude), float(longitude))
-    ws.get_water_graph(float(latitude), float(longitude), str(periode))
+    fig = ws.get_water_graph(float(latitude), float(longitude), str(periode))
+    st.pyplot(fig)
     
 
