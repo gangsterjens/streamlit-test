@@ -6,5 +6,4 @@ streamlit_folium
 folium
 matplotlib
 requests
-json
 datetime
