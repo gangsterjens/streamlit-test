@@ -35,6 +35,7 @@ if kjoyr and (type_naturskade == 'Storm'):
 elif kjoyr and (type_naturskade == 'Flom'):
     st.markdown("Skadedata fra flom")
     gdf_list = wf.find_water(float(longitude), float(latitude), distance=1000)
+    avstand = int(float(gdf_list[6]) * 1000)
     st.markdown(f"Nærmeste vann er {gdf_list[6]} km unna" )
     map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
     mf.folium_map(float(latitude), float(longitude))
