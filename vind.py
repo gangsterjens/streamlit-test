@@ -5,10 +5,12 @@ import os
 import ast
 import streamlit as st
 import datetime
-import weather_funcs as wf
-import map_funcs as mf
 import folium
 from streamlit_folium import st_folium
+#locale
+import weather_funcs as wf
+import map_funcs as mf
+import water_station as ws
 
 
 client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
@@ -36,8 +38,9 @@ elif kjoyr and (type_naturskade == 'Flom'):
     st.markdown("Skadedata fra flom")
     gdf_list = wf.find_water(float(longitude), float(latitude), distance=1000)
     avstand_vann = int(float(gdf_list[6]) * 1000)
-    st.markdown(f"Nærmeste vann er {avstand_vann} km unna" )
+    st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
     map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
     mf.folium_map(float(latitude), float(longitude))
-    st.map(map_df, zoom=15, size=3)
+    ws.get_water_graph(float(latitude), float(longitude), periode)
+    
 
