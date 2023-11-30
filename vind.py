@@ -12,6 +12,7 @@ import weather_funcs as wf
 import map_funcs as mf
 import water_station as ws
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
 
