@@ -26,14 +26,14 @@ def _get_stations(lon, lat, client_id, n_stations=5):
   return station_list
 
 
-def _get_wind_observation(station_id, combined_date, wind=True):
+def _get_wind_observation(station_id, combined_date, wind=True, rain=False):
   endpoint = 'https://frost.met.no/observations/v0.jsonld'
   element_list = []
   vind = 'max(wind_speed_of_gust P1D)'
   regn = 'sum(precipitation_amount P1D)'
   if wind:
     element_list.append(vind)
-  if rain is not None:
+  if rain:
     element_list.append(regn)
   parameters = {
         'sources': station_id,
