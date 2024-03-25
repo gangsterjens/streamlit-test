@@ -64,7 +64,16 @@ def get_weather_data(lat, lon, client_id, date, wind=False, rain=False):
 
   a = pd.DataFrame(stations, columns =['station_id', 'name',  'distance', 'coordinates'])
   b = pd.DataFrame(observations_list, columns=['station_id', 'value', 'hoyde'])
-  return pd.merge(a, b, left_on='station_id', right_on='station_id')
+  df = pd.merge(a, b, left_on='station_id', right_on='station_id')
+  def parse_coordinates(coord_string):
+    coords_list = ast.literal_eval(coord_string)  # Parse string to list
+    return {'longitude': coords_list[0], 'latitude': coords_list[1]}
+  df[['longitude', 'latitude']] = df['coordinates'].apply(lambda x: pd.Series(parse_coordinates(x)))
+  return df
+
+# Apply the function to the DataFrame column
+df[['longitude', 'latitude']] = df['coordinates'].apply(lambda x: pd.Series(parse_coordinates(x)))
+
 
 
 #lon, lat = 10.273419,	60.174558
