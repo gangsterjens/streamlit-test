@@ -27,15 +27,16 @@ with st.sidebar:
 ## Dashboard for stormdata:
 if kjoyr and (type_naturskade == 'Storm'):
     
-  st.markdown(periode)
-  df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
-  ## st.text("test")
-  print(df.head(5))
-  col1, col2 = st.columns([5,1])
-  col1.map(df)
-  for index, row in df.iterrows():
-    col2.metric(row['name'], row['value'])
-  st.dataframe(df)  
+    st.markdown(periode)
+    df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
+    ## st.text("test")
+    
+    col1, col2 = st.columns([5,1])
+    #col1.map(df)
+    col1.dataframe(df)  
+    for index, row in df.iterrows():
+        col2.metric(row['name'], row['value'])
+    
 # Dashboard for flomdata: 
 elif kjoyr and (type_naturskade == 'Flom'):
     st.markdown("Skadedata fra flom")
