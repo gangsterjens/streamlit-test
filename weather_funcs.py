@@ -71,10 +71,6 @@ def get_weather_data(lat, lon, client_id, date, wind=False, rain=False):
   df[['longitude', 'latitude']] = df['coordinates'].apply(lambda x: pd.Series(parse_coordinates(x)))
   return df
 
-# Apply the function to the DataFrame column
-df[['longitude', 'latitude']] = df['coordinates'].apply(lambda x: pd.Series(parse_coordinates(x)))
-
-
 
 #lon, lat = 10.273419,	60.174558
 import osmnx as ox
