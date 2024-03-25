@@ -58,7 +58,7 @@ def get_weather_data(lat, lon, client_id, date, wind=False, rain=False):
   stations = _get_stations(lat, lon, client_id)
   observations_list = []
   for station in stations:
-    data = _get_observation(station, date, wind=wind)
+    data = _get_wind_observation(station, date, wind=wind)
     if data:
       observations_list.append(data)
 
