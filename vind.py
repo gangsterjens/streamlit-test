@@ -26,9 +26,11 @@ with st.sidebar:
     kjoyr = st.button("kjøyr")
 ## Dashboard for stormdata:
 if kjoyr and (type_naturskade == 'Storm'):
+    
   st.markdown(periode)
   df = wf.get_weather_data(longitude, latitude, client_id, periode, wind=True)
   ## st.text("test")
+  print(df.head(5))
   col1, col2 = st.columns([5,1])
   col1.map(df)
   for index, row in df.iterrows():
