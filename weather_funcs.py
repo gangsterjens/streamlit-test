@@ -26,7 +26,7 @@ def _get_stations(lon, lat, client_id, n_stations=5):
   return station_list
 
 
-def _get__wind_observation(station_id, combined_date, wind=True):
+def _get_wind_observation(station_id, combined_date, wind=True):
   endpoint = 'https://frost.met.no/observations/v0.jsonld'
   element_list = []
   vind = 'max(wind_speed_of_gust P1D)'
