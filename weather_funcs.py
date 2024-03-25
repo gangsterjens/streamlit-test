@@ -33,7 +33,7 @@ def _get_wind_observation(station_id, combined_date, wind=True):
   regn = 'sum(precipitation_amount P1D)'
   if wind:
     element_list.append(vind)
-  if rain:
+  if rain is not None:
     element_list.append(regn)
   parameters = {
         'sources': station_id,
