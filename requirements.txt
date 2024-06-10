@@ -1,3 +1,4 @@
+streamlit
 osmnx
 pandas
 shapely
