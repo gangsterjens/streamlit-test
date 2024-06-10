@@ -52,7 +52,7 @@ elif kjoyr and (type_naturskade == 'Flom'):
     #with col2:
     fig = ws.get_water_graph(float(latitude), float(longitude), str(periode))
     st.markdown("## Vannstand 15 dager før t.o.m skadedato")
-    st.markdown(type(fig))
+    st.markdown(f'{latitude}, {longitude}, {periode}')
     st.pyplot(fig)
     st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
     
