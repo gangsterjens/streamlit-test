@@ -46,13 +46,13 @@ elif kjoyr and (type_naturskade == 'Flom'):
     st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
     map_df = pd.DataFrame(gdf_list[4:6], columns=['lon', 'lat'])
     st.markdown("## Kart over skadested")
-    col1, col2 = st.columns([3, 3])
-    with col1:
-        mf.folium_map(float(latitude), float(longitude))
-    with col2:
-        fig = ws.get_water_graph(float(latitude), float(longitude), str(periode))
-        st.markdown("## Vannstand 15 dager før t.o.m skadedato")
-        st.pyplot(fig)
-        st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
+    ##col1, col2 = st.columns([3, 3])
+    #with col1:
+    mf.folium_map(float(latitude), float(longitude))
+    #with col2:
+    fig = ws.get_water_graph(float(latitude), float(longitude), str(periode))
+    st.markdown("## Vannstand 15 dager før t.o.m skadedato")
+    st.pyplot(fig)
+    st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
     
 
