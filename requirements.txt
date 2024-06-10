@@ -8,4 +8,3 @@ folium
 matplotlib
 requests
 datetime
-ast
