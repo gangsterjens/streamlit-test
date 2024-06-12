@@ -11,6 +11,7 @@ from streamlit_folium import st_folium
 import weather_funcs as wf
 import map_funcs as mf
 import water_station as ws
+import topografi as tp
 
 
 
@@ -58,5 +59,6 @@ elif kjoyr and (type_naturskade == 'Flom'):
         st.markdown(f'{latitude}, {longitude}, {periode}')
         st.pyplot(fig)
         st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
+        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 10)
     
 
