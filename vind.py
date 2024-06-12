@@ -2,6 +2,7 @@ import requests
 import json
 import pandas as pd
 import os
+import matplotlib.pyplot as plt
 ##import ast
 import streamlit as st
 import datetime
@@ -11,7 +12,7 @@ from streamlit_folium import st_folium
 import weather_funcs as wf
 import map_funcs as mf
 import water_station as ws
-import topografi as tp
+from topografi import create_tverssnitt
 
 
 
