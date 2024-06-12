@@ -63,9 +63,3 @@ def create_tverssnitt(vlon, lon, vlat, lat, steps=10):
 
   # Display the plot
   plt.show()
-
-if __name__ == '__main__':
-  lat = 63.27374
-  lon = 9.83084
-  vlat, vlon = 63.27373, 9.83214
-  create_tverssnitt(vlon, lon, vlat, lat, 10)
