@@ -58,7 +58,7 @@ elif kjoyr and (type_naturskade == 'Flom'):
 
         ## Topografi
         st.markdown("### Topografisk tversnitt mellom hus og vann")
-        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
+        fig_top = create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
         st.pyplot(fig_top)
 
         ## Vannstand
