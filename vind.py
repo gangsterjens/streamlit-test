@@ -60,8 +60,8 @@ elif kjoyr and (type_naturskade == 'Flom'):
         st.markdown(f'{latitude}, {longitude}, {periode}')
         st.pyplot(fig)
         st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
-        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
         st.markdown("### Topografisk tversnitt mellom hus og vann")
+        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
         st.pyplot(fig_top)
     
 
