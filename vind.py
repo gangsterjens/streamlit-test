@@ -19,8 +19,8 @@ client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
 st.markdown("# Naturskadedata")
 with st.sidebar:
     st.markdown("## sett inn Koordinater")
-    longitude = st.text_input("Lon", placeholder='16.85264')        
-    latitude = st.text_input("Latitude", placeholder='68.35646')
+    longitude = st.text_input("Lon", placeholder='9.83084')        
+    latitude = st.text_input("Latitude", placeholder='63.27375')
     periode = st.date_input('Dag/Periode', "today")
     type_naturskade = st.selectbox("velg naturskade", ["Flom", "Storm"])
     kjoyr = st.button("kjøyr")
