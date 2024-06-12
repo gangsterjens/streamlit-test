@@ -55,13 +55,16 @@ elif kjoyr and (type_naturskade == 'Flom'):
         st.markdown("### Kart over skadested")
         mf.folium_map(float(latitude), float(longitude))
     with col2:
+
+        ## Topografi
+        st.markdown("### Topografisk tversnitt mellom hus og vann")
+        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
+        st.pyplot(fig_top)
+
+        ## Vannstand
         fig = ws.get_water_graph(float(latitude), float(longitude), str(periode))
         st.markdown("### Vannstand 15d før t.o.m skadedato")
         st.markdown(f'{latitude}, {longitude}, {periode}')
         st.pyplot(fig)
         st.markdown(f"Nærmeste vann er {avstand_vann} meter unna" )
-        st.markdown("### Topografisk tversnitt mellom hus og vann")
-        fig_top = tp.create_tverssnitt(9.83214, 9.83084, 63.27373, 63.27374, 5)
-        st.pyplot(fig_top)
-    
-
+        
