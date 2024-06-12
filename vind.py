@@ -21,7 +21,7 @@ st.set_page_config(layout="wide")
 
 client_id = '9d4a669c-ad20-4ebe-9e0c-8c82b39a22ec'
 
-st.markdown("# Naturskadedata")
+st.markdown("# Naturskadedata <3")
 with st.sidebar:
     st.markdown("## sett inn Koordinater")
     longitude = st.text_input("Lon", placeholder='9.83084')        
